@@ -18,11 +18,11 @@
 
     <title>
         
-          维特陈先森的2016 - 维特陈先森的博客 | Victor&#39;s Blog
+          Hello Hexo！ - 维特陈先森的博客 | Victor&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://chenshihao.site/2016/12/31/summary_2016/">
+    <link rel="canonical" href="http://chenshihao.site/2017/01/24/build-blog-with-hexo/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -136,7 +136,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('summary_2016.jpg')
+        background-image: url('build-blog-with-hexo.jpg')
     }
     /*
      * 临时修复高度问题
@@ -174,15 +174,15 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#总结" title="总结">总结</a>
+                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
                         
-                          <a class="tag" href="/tags/#2016" title="2016">2016</a>
+                          <a class="tag" href="/tags/#Github Pages" title="Github Pages">Github Pages</a>
                         
                     </div>
-                    <h1>维特陈先森的2016</h1>
-                    <h2 class="subheading">回顾2016，记忆只剩些许轮廓</h2>
+                    <h1>Hello Hexo！</h1>
+                    <h2 class="subheading">维特陈先森的博客诞生记</h2>
                     <span class="meta">
-                        陈仕豪 发表于 2016-12-31
+                        陈仕豪 发表于 2017-01-24
                     </span>
                 </div>
             </div>
@@ -198,17 +198,84 @@
     <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
                 <blockquote>
-<p>我曾认为，2016是我最灰暗的一年；生活认为，灰暗总意味着转变。</p>
+<p>生命中的每一次Hello，一定深深打动过你的心</p>
 </blockquote>
-<p>年末心生感慨，对2016的起起落落，对自己说声感谢。</p>
-<p>2016，痛彻心扉的失去，让我变得更加随和与淡然。</p>
-<p>2016，给他人写应用赚得第一桶金，知识就是力量。</p>
-<p>2016，在国网高培呆了半年，过着没羞没躁的工作（蹭吃蹭喝）生活。</p>
-<p>2016，从瞎倒腾，不自信，到懂得该专注于什么。</p>
-<p>2016，难关重重，潜心修炼，最终运气不错，步上正轨。</p>
-<p>2016，这一年不断重构自己，重构思维，迈向独立，学会控制自己。</p>
-<p>2017，即将离开中财。人终归为人，留恋的总是人和事。有得配酒的故事，交得不错的朋友，这是我的大学。</p>
-<p>2017，更洒脱的活着。</p>
+<h1 id="序言-amp-扯淡"><a href="#序言-amp-扯淡" class="headerlink" title="序言 &amp; 扯淡"></a>序言 &amp; 扯淡</h1><p><a href="#main">拒绝扯淡，直奔主题</a></p>
+<p>几个月前一次偶然的机会，我发现了 <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a> 这个博客框架。</p>
+<p>Hexo 基于 nodejs，速度很快以及一键部署十分方便，满足了我的建站需求，于是乎心里种下了这么一颗草——用 Hexo 框架搭建属于自己的博客。但几个月来一直没有付诸行动。😑</p>
+<p>实习结束，秋招上车，总算能有一段清闲的时间了。最近在看 <code>ES2015</code> 的书以及 <code>Angular 2</code>，就在这恣肆的海洋中畅游时，偶然那么一天，心血来潮，于是乎，<a href="#">维特陈先森的博客</a>诞生了！</p>
+<p id="main">
+
+<hr>
+</p><p>本人使用的操作系统是 Windows 10 ，macOS 和 Linux 下相应的操作会有些许不同。</p>
+<hr>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul>
+<li><p>编辑器 || IDE</p>
+<p>关于编辑器的选择，比较自由，自己喜欢才最重要。在这里我用的是微软家的 <a href="https://code.visualstudio.com/" target="_blank" rel="external">Visual Studio Code</a>，本人十分推荐使用“地表最强”—— Intellij IDEA 及其家属，前端开发者当然用 Webstorm 咯～不过，他家的产品酷炫是酷炫，就是要收费（什么破解？要什么自行车？#手动滑稽）</p>
+</li>
+<li><p>Node.js 运行时环境</p>
+<p>前面说到 Hexo 是基于 Node.js 环境的，所以没有安装 Node.js 的小伙伴请先自行<a href="https://nodejs.org/" target="_blank" rel="external">下载安装</a>。安装 Node.js 时会自带安装好 npm 包管理工具，后面的操作会用到 npm 包管理工具。</p>
+<blockquote>
+<p>用 <code>node -v</code> 和 <code>npm -v</code> 命令检查是否安装成功</p>
+</blockquote>
+<pre><code>D:\&gt;node -v &amp;&amp; npm -v
+v7.4.0
+4.0.5
+
+D:\&gt;
+</code></pre></li>
+<li><p>Git</p>
+<p>Hexo 官方文档指出需要用到 Git ，Hexo 的<a href="https://github.com/hexojs/hexo" target="_blank" rel="external">源码</a>放在 Github 上，安装 Hexo 时需要 git 命令。没有安装的小伙伴也先<a href="https://git-scm.com/download" target="_blank" rel="external">下载安装</a></p>
+<blockquote>
+<p>用 <code>git --version</code> 命令检查是否安装成功</p>
+</blockquote>
+<pre><code>D:\&gt;git --version
+git version 2.10.1.windows.1
+
+D:\&gt;
+</code></pre></li>
+<li><p>安装 hexo-cli</p>
+<p>必备应用程序安装完毕后，就可以用 npm 安装 Hexo 了。我们后续编写、管理博客都会用到 <code>hexo</code> 命令。</p>
+<pre><code>D:\&gt;npm install -g hexo-cli
+</code></pre><blockquote>
+<p>用 <code>hexo -v</code> 命令检查安装情况</p>
+</blockquote>
+<pre><code>D:\&gt;hexo -v
+hexo-cli: 1.0.2
+os: Windows_NT 10.0.14393 win32 x64
+http_parser: 2.7.0
+node: 7.4.0
+v8: 5.4.500.45
+uv: 1.10.1
+zlib: 1.2.8
+ares: 1.10.1-DEV
+modules: 51
+openssl: 1.0.2j
+icu: 58.2
+unicode: 9.0
+cldr: 30.0.3
+tz: 2016j
+</code></pre></li>
+</ul>
+<p>至此，Hexo 的基本环境搭建就完成了。下面开始我们的 Hello Hexo 工程！😉</p>
+<h1 id="开启-hexo-demo-工程"><a href="#开启-hexo-demo-工程" class="headerlink" title="开启 hexo-demo 工程"></a>开启 hexo-demo 工程</h1><p>  找一块空地，新建一个文件夹，这里新建的文件夹叫 hexo-demo ，同时，建完就转移工作阵地。</p>
+<pre><code>D:\&gt;mkdir hexo-demo &amp;&amp; cd hexo-demo
+</code></pre><p>  前面的准备工作最后一步安装了 hexo-cli ，有了它，我们可以非常轻松的初始化一个 Hexo 项目。</p>
+<pre><code>D:\hexo-demo&gt;hexo init
+</code></pre><p>  随后我们可以看到控制台一系列的 <code>git clone</code> 操作以及 npm 模块的安装。一小段时间过后安装完毕，用我们伟大的编辑器打开项目吧！</p>
+<blockquote>
+<p>若碰到 npm 模块安装过慢甚至失败（在天朝，因为一些墙的原因），可以将 npm registry 换做<a href="https://npm.taobao.org/" target="_blank" rel="external">淘宝镜像</a>，或者换成 cnpm </p>
+</blockquote>
+<p>  我们也可以在打开编辑器后再执行 <code>hexo init</code> 命令。下图为 Visual Studio Code，快捷键 <kbd>Ctrl + `</kbd> 打开终端，功能等同于 cmd 。</p>
+<p>  <img src="vscode-0.png" alt="Visual Studio Code"></p>
+<p>  PS. 也许你会觉得我的 VS Code 和你的长的不同，这里我修改了应用程序的 CSS 源文件，全局使用苹果家的萍方字体，配合 Mactype 渲染，赏心悦目 😝 。VS Code 是个 <a href="http://electron.atom.io/" target="_blank" rel="external">Electron</a> 应用，有兴趣的小伙伴可以研究研究哦。</p>
+<p>  初始化完毕，我们不妨先看看博客效果。要访问一个页面必然少不了server，以前用 java 开发 web 应用时用的是 Tomcat ，同样的，Node.js 也可以做到。</p>
+<blockquote>
+<p>用 <code>hexo s</code> 命令启动服务器，默认端口为4000，浏览器访问 localhost:4000</p>
+</blockquote>
+<pre><code>D:\hexo-demo&gt;hexo s
+</code></pre><p>  <img src="hexo-demo-0.png" alt="hexo-demo-0"></p>
+<p>  (歇会儿，累死爸爸了)</p>
 
                 <hr>
                 
@@ -216,14 +283,15 @@
                 </style>
                 <div class="ds-share"
                     style="text-align: right"
-                    data-thread-key="2016/12/31/summary_2016/"
-                    data-title="维特陈先森的2016"
-                    data-url="http://chenshihao.site/2016/12/31/summary_2016/"
-                    data-images="http://chenshihao.site/2016/12/31/summary_2016/summary_2016.jpg"
+                    data-thread-key="2017/01/24/build-blog-with-hexo/"
+                    data-title="Hello Hexo！"
+                    data-url="http://chenshihao.site/2017/01/24/build-blog-with-hexo/"
+                    data-images="http://chenshihao.site/2017/01/24/build-blog-with-hexo/build-blog-with-hexo.jpg"
                     data-content="
-我曾认为，2016是我最灰暗的一年；生活认为，灰暗总意味着转变。
+生命中的每一次Hello，一定深深打动过你的心
 
-年末心生感慨，对2016... | 维特陈先森的博客 | Victor&#39;s Blog " >
+序言 &amp; 扯淡拒绝扯淡，直奔主题
+... | 维特陈先森的博客 | Victor&#39;s Blog " >
                     <div class="ds-share-inline">
                       <ul  class="ds-share-icons-16">
                         <li>分享到：</li>
@@ -240,10 +308,10 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/01/24/build-blog-with-hexo/" data-toggle="tooltip" data-placement="top" title="Hello Hexo！">&larr; 上一篇</a>
-                        </li>
                     
+                        <li class="next">
+                            <a href="/2016/12/31/summary_2016/" data-toggle="tooltip" data-placement="top" title="维特陈先森的2016">下一篇 &rarr;</a>
+                        </li>
                     
                 </ul>
 
@@ -251,9 +319,9 @@
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread"
-                        data-thread-key="2016/12/31/summary_2016/"
-                        data-title="维特陈先森的2016"
-                        data-url="http://chenshihao.site/2016/12/31/summary_2016/" >
+                        data-thread-key="2017/01/24/build-blog-with-hexo/"
+                        data-title="Hello Hexo！"
+                        data-url="http://chenshihao.site/2017/01/24/build-blog-with-hexo/" >
                     </div>
                 </div>
                 <!-- 多说评论框 end -->
