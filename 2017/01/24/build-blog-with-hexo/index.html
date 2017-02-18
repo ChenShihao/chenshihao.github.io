@@ -315,7 +315,7 @@ INFO  Created: D:\hexo-demo\source\_posts\hexo-demo.md
 <p>  在 <code>Front-matter</code> 后另起一行，随便写两句话吧，保存文件，重启服务器，我们可以看到文章列表中多了一篇名叫 hexo-demo 的文章。</p>
 <h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><p>  如果我们需要部署博客到某些静态页面托管服务时，这时候我们需要博客的静态页面。</p>
 <blockquote>
-<p>笔者知道的静态页面托管服务不多，考虑大陆环境以及海外用户的请求速度，目前页面用到了 <a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a> 和 <a href="https://coding.net/help/doc/pages/index.html#coding-pages" target="_blank" rel="external">Coding Pages</a>。(给 Coding 网站当回水军#手动滑稽)</p>
+<p>笔者知道的静态页面托管服务不多，考虑大陆环境以及海外用户的请求速度，目前页面用到了 <a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a> 和 <a href="https://coding.net/help/doc/pages/index.html#coding-pages" target="_blank" rel="external">Coding Pages</a>。不了解的可以点进去看关于 Pages 的帮助。</p>
 </blockquote>
 <p>  使用 <code>hexo g</code> 命令生成静态文件</p>
 <pre><code>D:\hexo-demo&gt; hexo g
@@ -363,9 +363,11 @@ INFO  Deleted public folder.
 <li><p>在根目录下的 <code>_config.yml</code>文件中，加入 <code>deploy</code> 配置。</p>
 <figure class="highlight dts"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">(....)</div><div class="line"></div><div class="line"><span class="meta"># Deployment  </span></div><div class="line"><span class="symbol">deploy:</span></div><div class="line">- type: git</div><div class="line"><span class="symbol">  repo:</span> https:<span class="comment">//github.com/ChenShihao/chenshihao.github.io.git</span></div><div class="line"><span class="symbol">  branch:</span> master</div><div class="line">- type: git</div><div class="line"><span class="symbol">  repo:</span> https:<span class="comment">//git.coding.net/chenshihao/chenshihao.coding.me.git</span></div><div class="line"><span class="symbol">  branch:</span> master</div></pre></td></tr></table></figure>
 </li>
-<li><p>使用命令 <code>hexo d</code> 部署</p>
+<li><p>使用命令 <code>hexo d -g</code> 部署</p>
+<p>根目录下的 <code>.deploy_git</code> 文件夹就是 git push 的内容，参数 <code>--g</code> 表示部署前先生成文件。</p>
 </li>
 </ul>
+<h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>至此，基本的搭建工作就算完成了。博客还有很多可以折腾的地方，我想，有时间的话，多写写博客也无妨。</p>
 
                 <hr>
                 
