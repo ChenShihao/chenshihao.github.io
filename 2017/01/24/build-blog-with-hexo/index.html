@@ -274,7 +274,98 @@ tz: 2016j
 </blockquote>
 <pre><code>D:\hexo-demo&gt;hexo s
 </code></pre><p>  <img src="hexo-demo-0.png" alt="hexo-demo-0"></p>
-<p>  (歇会儿，累死爸爸了)</p>
+<h3 id="文件夹目录"><a href="#文件夹目录" class="headerlink" title="文件夹目录"></a>文件夹目录</h3><pre><code>.
+├── _config.yml
+├── package.json
+├── scaffolds
+├── source
+|   ├── _drafts
+|   └── _posts
+└── themes
+</code></pre><ul>
+<li><p>_config.yml</p>
+<p>全局配置文件，包装于全局对象<code>config</code>中，比如，编写主题时会使用。</p>
+</li>
+<li><p>package.json</p>
+<p>npm包配置文件</p>
+</li>
+<li><p>scaffolds</p>
+<p>模板文件，在新建一篇文章时，可以选择性使用模板</p>
+</li>
+<li><p>source</p>
+<p>博客资源内容所在，其中<code>_drafts</code>文件夹包含草稿文章，<code>_posts</code>包含正式文章。</p>
+<blockquote>
+<p>除 <code>_posts</code> 文件夹之外，开头命名为 <code>_</code> (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件则直接复制过去。</p>
+</blockquote>
+</li>
+<li><p>themes</p>
+<p>主题文件夹，Hexo根据主题生成静态页面，当前默认主题是 landscape 。</p>
+</li>
+</ul>
+<h3 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h3><blockquote>
+<p>用 <code>hexo new</code> 命令新建一篇文章</p>
+</blockquote>
+<pre><code>D:\hexo-demo&gt; hexo new &quot;hexo-demo&quot;
+INFO  Created: D:\hexo-demo\source\_posts\hexo-demo.md
+</code></pre><p>  <code>hexo-demo.md</code> 文件即 Markdown 格式的博客文件，现在默认内容应该为</p>
+  <figure class="highlight yaml"><figcaption><span>hexo-demo.md</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">title:</span> hexo-demo</div><div class="line"><span class="attr">date:</span> <span class="number">2017</span><span class="bullet">-01</span><span class="bullet">-24</span> <span class="number">22</span>:<span class="number">13</span>:<span class="number">25</span></div><div class="line"><span class="attr">tags:</span></div><div class="line"><span class="meta">---</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>---</code> 之间的内容称为 <code>Front-matter</code> ，即关于个别文件的变量参数。预定义的参数包括布局，标签，标题，日期等。</p>
+</blockquote>
+<p>  在 <code>Front-matter</code> 后另起一行，随便写两句话吧，保存文件，重启服务器，我们可以看到文章列表中多了一篇名叫 hexo-demo 的文章。</p>
+<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><p>  如果我们需要部署博客到某些静态页面托管服务时，这时候我们需要博客的静态页面。</p>
+<blockquote>
+<p>笔者知道的静态页面托管服务不多，考虑大陆环境以及海外用户的请求速度，目前页面用到了 <a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a> 和 <a href="https://coding.net/help/doc/pages/index.html#coding-pages" target="_blank" rel="external">Coding Pages</a>。(给 Coding 网站当回水军#手动滑稽)</p>
+</blockquote>
+<p>  使用 <code>hexo g</code> 命令生成静态文件</p>
+<pre><code>D:\hexo-demo&gt; hexo g
+INFO  Start processing
+INFO  Files loaded in 243 ms
+INFO  Generated: fancybox/blank.gif
+INFO  Generated: index.html
+INFO  Generated: archives/index.html
+INFO  Generated: fancybox/fancybox_loading@2x.gif
+INFO  Generated: fancybox/fancybox_overlay.png
+INFO  Generated: fancybox/jquery.fancybox.css
+INFO  Generated: fancybox/fancybox_loading.gif
+INFO  Generated: fancybox/fancybox_sprite@2x.png
+INFO  Generated: fancybox/fancybox_sprite.png
+INFO  Generated: archives/2017/01/index.html
+INFO  Generated: archives/2017/index.html
+INFO  Generated: css/fonts/FontAwesome.otf
+INFO  Generated: fancybox/helpers/jquery.fancybox-thumbs.css
+INFO  Generated: fancybox/jquery.fancybox.js
+INFO  Generated: fancybox/helpers/jquery.fancybox-buttons.css
+INFO  Generated: css/style.css
+INFO  Generated: fancybox/jquery.fancybox.pack.js
+INFO  Generated: fancybox/helpers/jquery.fancybox-media.js
+INFO  Generated: js/script.js
+INFO  Generated: fancybox/helpers/jquery.fancybox-buttons.js
+INFO  Generated: fancybox/helpers/jquery.fancybox-thumbs.js
+INFO  Generated: css/fonts/fontawesome-webfont.woff
+INFO  Generated: fancybox/helpers/fancybox_buttons.png
+INFO  Generated: css/images/banner.jpg
+INFO  Generated: css/fonts/fontawesome-webfont.ttf
+INFO  Generated: css/fonts/fontawesome-webfont.eot
+INFO  Generated: css/fonts/fontawesome-webfont.svg
+INFO  Generated: 2017/01/24/hexo-demo/index.html
+INFO  Generated: 2017/01/25/hello-world/index.html
+INFO  29 files generated in 802 ms
+</code></pre><p>  我们会发现根目录多了一个 <code>public</code> 文件夹，同时 <code>db.json</code> 文件也写入了相关信息。 <code>public</code> 文件夹中就是我们要的静态文件。</p>
+<blockquote>
+<p>如果想清除之前生成的静态文件以便于干净清爽的重新生成，我们可以用 <code>hexo clean</code> 命令达成目的</p>
+</blockquote>
+<pre><code>D:\hexo-demo&gt; hexo clean
+INFO  Deleted database.
+INFO  Deleted public folder.
+</code></pre><h3 id="部署工作"><a href="#部署工作" class="headerlink" title="部署工作"></a>部署工作</h3><p>  Hexo 自带部署功能，只要我们提供相应的仓库地址便可一键完成部署。</p>
+<ul>
+<li><p>在根目录下的 <code>_config.yml</code>文件中，加入 <code>deploy</code> 配置。</p>
+<figure class="highlight dts"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">(....)</div><div class="line"></div><div class="line"><span class="meta"># Deployment  </span></div><div class="line"><span class="symbol">deploy:</span></div><div class="line">- type: git</div><div class="line"><span class="symbol">  repo:</span> https:<span class="comment">//github.com/ChenShihao/chenshihao.github.io.git</span></div><div class="line"><span class="symbol">  branch:</span> master</div><div class="line">- type: git</div><div class="line"><span class="symbol">  repo:</span> https:<span class="comment">//git.coding.net/chenshihao/chenshihao.coding.me.git</span></div><div class="line"><span class="symbol">  branch:</span> master</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用命令 <code>hexo d</code> 部署</p>
+</li>
+</ul>
 
                 <hr>
                 
