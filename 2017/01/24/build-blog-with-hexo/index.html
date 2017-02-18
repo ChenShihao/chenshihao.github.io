@@ -364,7 +364,9 @@ INFO  Deleted public folder.
 <figure class="highlight dts"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">(....)</div><div class="line"></div><div class="line"><span class="meta"># Deployment  </span></div><div class="line"><span class="symbol">deploy:</span></div><div class="line">- type: git</div><div class="line"><span class="symbol">  repo:</span> https:<span class="comment">//github.com/ChenShihao/chenshihao.github.io.git</span></div><div class="line"><span class="symbol">  branch:</span> master</div><div class="line">- type: git</div><div class="line"><span class="symbol">  repo:</span> https:<span class="comment">//git.coding.net/chenshihao/chenshihao.coding.me.git</span></div><div class="line"><span class="symbol">  branch:</span> master</div></pre></td></tr></table></figure>
 </li>
 <li><p>使用命令 <code>hexo d -g</code> 部署</p>
-<p>根目录下的 <code>.deploy_git</code> 文件夹就是 git push 的内容，参数 <code>--g</code> 表示部署前先生成文件。</p>
+<blockquote>
+<p>根目录下的 <code>.deploy_git</code> 文件夹就是 git push 的内容，参数 <code>--g</code> 表示部署前先生成文件，否则最新的修改可能并没有提交。</p>
+</blockquote>
 </li>
 </ul>
 <h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>至此，基本的搭建工作就算完成了。博客还有很多可以折腾的地方，我想，有时间的话，多写写博客也无妨。</p>
