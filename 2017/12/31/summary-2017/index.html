@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <meta name="msvalidate.01" content="4F51AD3A9C5F4DDDFA709DC1A6B5943D" />
+    <meta name="baidu-site-verification" content="dKCP62k3HP" />
+    <meta name="google-site-verification" content="hKWZlwbzCj0T7GJsIcIuQ6NKTAzBsz7wS8ppAm3f_zg" />
+    <meta name="theme-color" content="#00695c">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="维特陈先森的博客，情怀与前端并进，美学与技术并行。记录关于前端的学习与生活">
+    <meta name="author" content="陈仕豪, victor_csh@outlook.com"/>
+    <meta name="keywords"  content="前端,陈仕豪,维特陈先森,博客,Victor,shihao,chenshihao">
+    <meta name="robots" content="index, follow">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          维特陈先森的 2017 - 维特陈先森的博客 | Victor&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://chenshihao.site/2017/12/31/summary-2017/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">维特陈先森</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">首页</a>
+                    </li>
+
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/archives/">归档</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="/tags/">标签</a>
+                    </li>
+                    
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function () {
+                // prevent frequently toggle
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('2017.jpg')
+    }
+    /*
+     * 临时修复高度问题
+     */
+    .intro-header + article{
+        overflow-y: hidden;
+    }
+    /**
+     * 手动设置多说分享样式
+     */
+    .ds-share-inline{
+        line-height: 1;
+    }
+    .ds-share ul{
+        padding: 0;
+        overflow: hidden;
+    }    
+    .ds-share li{
+        list-style: none;
+        float: left; 
+        font-size: 14px;
+        padding: 7px 0;        
+    }
+    .ds-share li:not(:first-child){
+        margin-left: 8px;
+    }
+    .ds-share li a{
+        color: #999;
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#总结" title="总结">总结</a>
+                        
+                          <a class="tag" href="/tags/#2017" title="2017">2017</a>
+                        
+                    </div>
+                    <h1>维特陈先森的 2017</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        陈仕豪 发表于 2017-12-31
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+                <blockquote>
+<p>重庆，摄于 2017 年 06 月 07 日 22 时 41 分。半年过去了，而今仍能感受到那天的温度和汗水。</p>
+</blockquote>
+<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><hr>
+<p>今天是 2017 年的最后一天，于我而言，这一天似乎没什么不同，早上叫个拼车，照常上班。</p>
+<p>当我想起去年今日，我曾给自己写过一些总结时，我还在静静的敲着业务代码，调试着百度地图。</p>
+<p>搁置了近一年的博客，再次拉代码时，有些许感慨，当初心想记下点点滴滴，后来却发现，每天忙着累着，没有这番闲情逸致。</p>
+<p>去年这个时候，我已经 “家里蹲” 了。那是我最放松，而又最情怀的时候 —— 决定好了未来的工作去处，没有任何精神负担，每天可以自由阅读学习自己喜欢的知识，写写颇有成就感的 Demo 和代码。自然而然地，年末来了个总结回顾，给自己一个回忆的理由。</p>
+<p>我本想随便熬过这么一个夜晚，美滋滋的睡一觉，醒来便是新的一年。</p>
+<p>但是，回想了走过的这一年，不记录一番就这么睡去，会不会显得太过 “佛系” 呢？</p>
+<hr>
+<h1 id="新的一年"><a href="#新的一年" class="headerlink" title="新的一年"></a>新的一年</h1><hr>
+<p>不由自主的想起，大学时每年都说的一句话，如果我没记错的话，这句话应该是我鸡哥哥说的。</p>
+<blockquote>
+<p>新的一年，我不再是过去那个傻逼了。<br>从明天起，我就是一个崭新的傻逼了！</p>
+</blockquote>
+<p>此刻脑海回荡着我鸡魔性的笑声。</p>
+<p>只是这种话，今年就没法听到了。</p>
+<p>我的意思不是鸡哥没了，而是单纯缅怀一下我们的感情。</p>
+<p>分道扬镳，有人工作了，有人读研了，有人出国了，有人又考研了。</p>
+<p>2018，像这种话就不能多说了。</p>
+<p>毕竟，以后都是成熟的傻逼了。</p>
+<hr>
+<h1 id="春风送暖入屠苏"><a href="#春风送暖入屠苏" class="headerlink" title="春风送暖入屠苏"></a>春风送暖入屠苏</h1><hr>
+<p>2017 年的春节，张灯结彩的日子。</p>
+<p>故事发生在东城的一家「七天」里。在佳源和烨堃的推（qiang）荐（po）下，我洗个澡的功夫，手机里就多了个叫「王者荣耀」的玩意儿。</p>
+<p>从未玩过 MOBA 游戏的我，当时连平 A 都喘气，却不曾想，正是因为它，有了今年很多很多故事……</p>
+<hr>
+<h1 id="甘洒热血写青春"><a href="#甘洒热血写青春" class="headerlink" title="甘洒热血写青春"></a>甘洒热血写青春</h1><hr>
+<p>2017 年的夏天，临近毕业的时光。</p>
+<p>这段日子里，最深有感触的就是，白天实习，晚上回寝，选择加入那群手机横过来的网瘾少年中。</p>
+<p>那时候，我还只是个小张飞，一声怒吼震峡谷。</p>
+<p><img src="zf-0.jpg" alt=""></p>
+<p>一边满怀激情的实习着，一边疯狂的横着手机，又一边担心着毕业设计和毕业论文。</p>
+<p>那段时间里，实习要做的事不算少，毕业论文也不太有头绪。</p>
+<p>随后的事实证明，边实习、边做毕业设计，还开黑，是不如「只开黑」好的。</p>
+<p>当然，事实也同样证明。</p>
+<blockquote>
+<p>毕设代码又有什么用呢？在这个设计当道的时代，没人关心你的实现究竟好与不好。</p>
+</blockquote>
+<p>后来，毕业设计总算如愿通过。</p>
+<p>实习工作也在五月末告一段落。</p>
+<hr>
+<h1 id="山水有逢，后会无期"><a href="#山水有逢，后会无期" class="headerlink" title="山水有逢，后会无期"></a>山水有逢，后会无期</h1><hr>
+<p>2017 年的六七月，那时是真正的毕业季。</p>
+<p>离别的日子不可逃避地越来越近。</p>
+<p>我们似乎也想抓住最后这点时光。</p>
+<p>一起去旅行，一起玩游戏，一起高歌，一起喝酒，留段回忆，来日可以提起。</p>
+<hr>
+<p>有天晚上，凌晨 12 点，电商的大佬们还和妹子们在峡谷畅游，5V5 打得不可开交，水分十足。</p>
+<p>我记得很清楚，那把 50 分钟的鏖战，所有的人头基本都被甩到了我头上，拿了男方 MVP。</p>
+<p>那一局，我用的是坦克。</p>
+<p>那一晚，我感慨万分，这可能也是我单身的原因吧。</p>
+<p>当然，还是比不过我鸡读研后「Penta Kill」的传奇故事。</p>
+<p><img src="rc-0.jpg" alt=""></p>
+<hr>
+<p>五月末，一行人去了秦皇岛，进行了一轮尬游。</p>
+<p>六月初，我们五个人，进行了火辣辣的重庆之旅。</p>
+<p>很多时候感受就是，意犹未尽。引用一下某电商妹子的话。</p>
+<blockquote>
+<p>重要的不是一起去哪里玩，而是和谁一起玩。</p>
+</blockquote>
+<p>我记不清我们的行程，就只记得，几个人很轻松自在，走到哪，汗就留到哪，笑声也在哪。</p>
+<p>我还记得，那几天里，托尼老师手持顶级摄像器材「Sumsang Galaxy S8」，走遍整个重庆，只为寻找心中的摄影之美。</p>
+<p>我的就不太好了，拍出来的效果也差强人意，「Huawei Mate 9 - LEICA DUAL CAMERA」。</p>
+<p><img src="tony.jpg" alt=""></p>
+<hr>
+<p>回忆的车轱辘撵过了头，很多细节此时此刻也无法想起了。</p>
+<p>六月底，大家陆陆续续搬离宿舍了。</p>
+<p>我也搬家了，和澜澜一起成为了朝阳群众。</p>
+<p>也是那天过后，我们才开始意识到，新生活与旧生活的交替与改变。</p>
+<p>那天午后，我在群里听说，鸡哥哥，雷哥哥，听着「凤凰花开的路口」缓缓睡去。</p>
+<p>就这样，我带着低落的情绪，开始了 2017 年的下半部分。</p>
+<hr>
+<h1 id="新生活新体验"><a href="#新生活新体验" class="headerlink" title="新生活新体验"></a>新生活新体验</h1><hr>
+<p>2017 年的秋天，大家分道扬镳，开始适应自己的新生活。</p>
+<p>7 月 4 日是我入职的日子，那天起，我正式成为了 58 集团的前端开发工程师。</p>
+<p>开始漫漫的工作旅程，开始适应真正的职场生活。</p>
+<p>期间，大学的小伙伴许多还留在北京，我们会互相拜访。后来大家步入正轨，都忙了，也就见得少了。</p>
+<hr>
+<h1 id="「古墓派」"><a href="#「古墓派」" class="headerlink" title="「古墓派」"></a>「古墓派」</h1><hr>
+<p>在职期间，「信天翁」给了我们同届校招生互相认识的机会。</p>
+<p>在这里，我认识了十几位非常有趣的组员。</p>
+<p>那天分组名单出来后，我们以「甩锅」为主，「璐璐退群倾向综合征」为辅，最终如愿选出了我们的班长。</p>
+<p>集训那几天，百来人激烈的竞争，丝毫不能动摇我组近乎为零的求胜欲。</p>
+<p>夸张点说，可能就是只会吃喝拉撒了吧。</p>
+<p>至于「古墓派」的来源，我想就不必在此赘述了。</p>
+<p>即便过了十年，也可以想起那天的素质三连 “沙尘暴”，让我们永远倒在古墓里。</p>
+<p>然而，实力强劲的我们，Hackthon 还是拿了个亚军。</p>
+<p>不禁看了一眼此时安静躺在桌上的鼠标 —— 那个酷炫的战利品。</p>
+<p><img src="mc.jpg" alt=""></p>
+<hr>
+<p>秋天给人的感觉是萧瑟的，而我却遇见了一个她，有一段十分开心的回忆，只可惜没能继续走下去。</p>
+<p>我也不知道，什么时候变得这么淡然，只觉得一切都讲究缘分。</p>
+<p>这就是改变。</p>
+<hr>
+<h1 id="道阻且难"><a href="#道阻且难" class="headerlink" title="道阻且难"></a>道阻且难</h1><hr>
+<p>年末的日子极其规律，工作的强度比起过去要大。</p>
+<p>渐渐地，我感觉自己活得太将就了。却也没去改变什么。</p>
+<p>述职插曲也让我陷入了沉思，对自己有了新的思考。</p>
+<p>思考意义，思考价值，思考取舍。</p>
+<hr>
+<h1 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h1><hr>
+<p>而那个贯穿 2017 的「王者荣耀」，也开始有了些微妙的变化。</p>
+<p>这些月来，开始接触了直播，有了自己的小爱豆 —— <a href="https://weibo.com/u/5462428784" target="_blank" rel="noopener">大锤</a></p>
+<p>我总来听他说单口相声，听他说瓜娃子，胖头鱼。</p>
+<p>S9 赛季上了人生第一个荣耀王者，那种体验很奇妙。</p>
+<p>多年后想起 2017 年，S8 赛季的五排超跑车队，想起那些和猪哥、CC一起冲段的日子，也是一段很热血的经历。</p>
+<p>因为它，我们的联系变得更简单纯粹，峡谷就是第二个幽会的地方。</p>
+<p>今天没有在峡谷跨年，也没有和朋友出去倒数，就坐在家里静静的敲着字。</p>
+<p>不得不说，这种感觉更让我安稳舒心。</p>
+<p>上了 7 天班，我终于有时间静下心来想这些东西了。</p>
+<blockquote>
+<p>写到这里的时候，时间来到了 11：58，没想到一下子写了快三个小时。</p>
+</blockquote>
+<p>怎么说，2018 来了呢。</p>
+
+
+                <hr>
+                
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/01/24/build-blog-with-hexo/" data-toggle="tooltip" data-placement="top" title="Hello Hexo！">下一篇 &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                        data-thread-key="2017/12/31/summary-2017/"
+                        data-title="维特陈先森的 2017"
+                        data-url="http://chenshihao.site/2017/12/31/summary-2017/" >
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User by Hux
+    var _user = 'chenshihao';
+
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/wei-te-chen-xian-sen-5">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/carefreesigh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/ChenShihao">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/chenshihao">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 维特陈先森 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("https://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="https://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://chenshihao.site/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-90745665-1';
+    var _gaDomain = 'auto';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '1d037a55bb5703fefc271401970638d4';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

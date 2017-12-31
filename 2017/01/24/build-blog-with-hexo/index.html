@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <meta name="msvalidate.01" content="4F51AD3A9C5F4DDDFA709DC1A6B5943D" />
+    <meta name="baidu-site-verification" content="dKCP62k3HP" />
+    <meta name="google-site-verification" content="hKWZlwbzCj0T7GJsIcIuQ6NKTAzBsz7wS8ppAm3f_zg" />
+    <meta name="theme-color" content="#00695c">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="维特陈先森的博客，情怀与前端并进，美学与技术并行。记录关于前端的学习与生活">
+    <meta name="author" content="陈仕豪, victor_csh@outlook.com"/>
+    <meta name="keywords"  content="前端,陈仕豪,维特陈先森,博客,Victor,shihao,chenshihao">
+    <meta name="robots" content="index, follow">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          Hello Hexo！ - 维特陈先森的博客 | Victor&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://chenshihao.site/2017/01/24/build-blog-with-hexo/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">维特陈先森</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">首页</a>
+                    </li>
+
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/archives/">归档</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="/tags/">标签</a>
+                    </li>
+                    
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function () {
+                // prevent frequently toggle
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('build-blog-with-hexo.jpg')
+    }
+    /*
+     * 临时修复高度问题
+     */
+    .intro-header + article{
+        overflow-y: hidden;
+    }
+    /**
+     * 手动设置多说分享样式
+     */
+    .ds-share-inline{
+        line-height: 1;
+    }
+    .ds-share ul{
+        padding: 0;
+        overflow: hidden;
+    }    
+    .ds-share li{
+        list-style: none;
+        float: left; 
+        font-size: 14px;
+        padding: 7px 0;        
+    }
+    .ds-share li:not(:first-child){
+        margin-left: 8px;
+    }
+    .ds-share li a{
+        color: #999;
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                        
+                    </div>
+                    <h1>Hello Hexo！</h1>
+                    <h2 class="subheading">维特陈先森的博客诞生记</h2>
+                    <span class="meta">
+                        陈仕豪 发表于 2017-01-24
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+                <blockquote>
+<p>生命中的每一次Hello，一定深深打动过你的心</p>
+</blockquote>
+<h1 id="序言-amp-扯淡"><a href="#序言-amp-扯淡" class="headerlink" title="序言 &amp; 扯淡"></a>序言 &amp; 扯淡</h1><p><a href="#main">拒绝扯淡，直奔主题</a></p>
+<p>几个月前一次偶然的机会，我发现了 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 这个博客框架。</p>
+<p>Hexo 基于 nodejs，速度很快以及一键部署十分方便，满足了我的建站需求，于是乎心里种下了这么一颗草——用 Hexo 框架搭建属于自己的博客。自己搭建博客与在别的平台上写博客的感觉还是不同的，比如在自定义方面，自己搭建博客简直是为所欲为呀。</p>
+<p>但几个月来一直没有付诸行动。😑</p>
+<p>实习结束，秋招上车，总算能有一段清闲的时间了。最近在看 <code>ES2015</code> 的书以及 <code>Angular 2</code>，就在这恣肆的海洋中畅游时，偶然那么一天，心血来潮，于是乎，<a href="#">维特陈先森的博客</a>诞生了！</p>
+<p id="main">
+
+<hr>
+</p><p>本人使用的操作系统是 Windows 10 ，macOS 和 Linux 下相应的操作会有些许不同。</p>
+<hr>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul>
+<li><p>编辑器 || IDE</p>
+<p>关于编辑器的选择，比较自由，自己喜欢才最重要。在这里我用的是微软家的 <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a>，本人十分推荐使用“地表最强”—— Intellij IDEA 及其家属，前端开发者当然用 Webstorm 咯～不过，他家的产品酷炫是酷炫，就是要收费（什么破解？要什么自行车？#手动滑稽）</p>
+</li>
+<li><p>Node.js 运行时环境</p>
+<p>前面说到 Hexo 是基于 Node.js 环境的，所以没有安装 Node.js 的小伙伴请先自行<a href="https://nodejs.org/" target="_blank" rel="noopener">下载安装</a>。安装 Node.js 时会自带安装好 npm 包管理工具，后面的操作会用到 npm 包管理工具。</p>
+<blockquote>
+<p>用 <code>node -v</code> 和 <code>npm -v</code> 命令检查是否安装成功</p>
+</blockquote>
+<pre><code>D:\&gt;node -v &amp;&amp; npm -v
+v7.4.0
+4.0.5
+
+D:\&gt;
+</code></pre></li>
+<li><p>Git</p>
+<p>Hexo 官方文档指出需要用到 Git ，Hexo 的<a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">源码</a>放在 Github 上，安装 Hexo 时需要 git 命令。没有安装的小伙伴也先<a href="https://git-scm.com/download" target="_blank" rel="noopener">下载安装</a></p>
+<blockquote>
+<p>用 <code>git --version</code> 命令检查是否安装成功</p>
+</blockquote>
+<pre><code>D:\&gt;git --version
+git version 2.10.1.windows.1
+
+D:\&gt;
+</code></pre></li>
+<li><p>安装 hexo-cli</p>
+<p>必备应用程序安装完毕后，就可以用 npm 安装 Hexo 了。我们后续编写、管理博客都会用到 <code>hexo</code> 命令。</p>
+<pre><code>D:\&gt;npm install -g hexo-cli
+</code></pre><blockquote>
+<p>用 <code>hexo -v</code> 命令检查安装情况</p>
+</blockquote>
+<pre><code>D:\&gt;hexo -v
+hexo-cli: 1.0.2
+os: Windows_NT 10.0.14393 win32 x64
+http_parser: 2.7.0
+node: 7.4.0
+v8: 5.4.500.45
+uv: 1.10.1
+zlib: 1.2.8
+ares: 1.10.1-DEV
+modules: 51
+openssl: 1.0.2j
+icu: 58.2
+unicode: 9.0
+cldr: 30.0.3
+tz: 2016j
+</code></pre></li>
+</ul>
+<p>至此，Hexo 的基本环境搭建就完成了。下面开始我们的 Hello Hexo 工程！😉</p>
+<h1 id="开启-hexo-demo-工程"><a href="#开启-hexo-demo-工程" class="headerlink" title="开启 hexo-demo 工程"></a>开启 hexo-demo 工程</h1><p>  找一块空地，新建一个文件夹，这里新建的文件夹叫 hexo-demo ，同时，建完就转移工作阵地。</p>
+<pre><code>D:\&gt;mkdir hexo-demo &amp;&amp; cd hexo-demo
+</code></pre><p>  前面的准备工作最后一步安装了 hexo-cli ，有了它，我们可以非常轻松的初始化一个 Hexo 项目。</p>
+<pre><code>D:\hexo-demo&gt;hexo init
+</code></pre><p>  随后我们可以看到控制台一系列的 <code>git clone</code> 操作以及 npm 模块的安装。一小段时间过后安装完毕，用我们伟大的编辑器打开项目吧！</p>
+<blockquote>
+<p>若碰到 npm 模块安装过慢甚至失败（在天朝，因为一些墙的原因），可以将 npm registry 换做<a href="https://npm.taobao.org/" target="_blank" rel="noopener">淘宝镜像</a>，或者换成 cnpm </p>
+</blockquote>
+<p>  我们也可以在打开编辑器后再执行 <code>hexo init</code> 命令。下图为本人的 Visual Studio Code，快捷键 <kbd>Ctrl + `</kbd> 打开终端，功能等同于 cmd 。</p>
+<p>  <img src="vscode-0.png" alt="Visual Studio Code"></p>
+<p>  PS. 也许你会觉得我的 VS Code 和你的长的不同，这里我修改了应用程序的 CSS 源文件，全局使用苹果家的萍方字体，配合 Mactype 渲染，赏心悦目 😝 。VS Code 是个 <a href="http://electron.atom.io/" target="_blank" rel="noopener">Electron</a> 应用，有兴趣的小伙伴可以研究研究哦。</p>
+<p>  初始化完毕，我们不妨先看看博客效果。</p>
+<blockquote>
+<p>用 <code>hexo s</code> 命令启动服务器，默认端口为4000，浏览器访问 localhost:4000</p>
+</blockquote>
+<pre><code>D:\hexo-demo&gt;hexo s
+</code></pre><p>  <img src="hexo-demo-0.png" alt="hexo-demo-0"></p>
+<h3 id="文件夹目录"><a href="#文件夹目录" class="headerlink" title="文件夹目录"></a>文件夹目录</h3><pre><code>.
+├── _config.yml
+├── package.json
+├── scaffolds
+├── source
+|   ├── _drafts
+|   └── _posts
+└── themes
+</code></pre><ul>
+<li><p>_config.yml</p>
+<p>全局配置文件，包装于全局对象<code>config</code>中，比如，编写主题时会使用。</p>
+</li>
+<li><p>package.json</p>
+<p>npm包配置文件</p>
+</li>
+<li><p>scaffolds</p>
+<p>模板文件，在新建一篇文章时，可以选择性使用模板</p>
+</li>
+<li><p>source</p>
+<p>博客资源内容所在，其中<code>_drafts</code>文件夹包含草稿文章，<code>_posts</code>包含正式文章。</p>
+<blockquote>
+<p>除 <code>_posts</code> 文件夹之外，开头命名为 <code>_</code> (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件则直接复制过去。</p>
+</blockquote>
+</li>
+<li><p>themes</p>
+<p>主题文件夹，Hexo根据主题生成静态页面，当前默认主题是 landscape 。</p>
+</li>
+</ul>
+<h3 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h3><blockquote>
+<p>用 <code>hexo new</code> 命令新建一篇文章</p>
+</blockquote>
+<pre><code>D:\hexo-demo&gt; hexo new &quot;hexo-demo&quot;
+INFO  Created: D:\hexo-demo\source\_posts\hexo-demo.md
+</code></pre><p>  <code>hexo-demo.md</code> 文件即 Markdown 格式的博客文件，现在默认内容应该为</p>
+  <figure class="highlight yaml"><figcaption><span>hexo-demo.md</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">hexo-demo</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2017</span><span class="bullet">-01</span><span class="bullet">-24</span> <span class="number">22</span><span class="string">:13:25</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>---</code> 之间的内容称为 <code>Front-matter</code> ，即关于个别文件的变量参数。预定义的参数包括布局，标签，标题，日期等。</p>
+</blockquote>
+<p>  在 <code>Front-matter</code> 后另起一行，随便写两句话吧，保存文件，重启服务器，我们可以看到文章列表中多了一篇名叫 hexo-demo 的文章。</p>
+<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><p>  如果我们需要部署博客到某些静态页面托管服务时，这时候我们需要博客的静态页面。</p>
+<blockquote>
+<p>笔者知道的静态页面托管服务不多，考虑大陆环境以及海外用户的请求速度，目前页面用到了 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> 和 <a href="https://coding.net/help/doc/pages/index.html#coding-pages" target="_blank" rel="noopener">Coding Pages</a>。不了解的可以点进去看关于 Pages 的帮助。</p>
+</blockquote>
+<p>  使用 <code>hexo g</code> 命令生成静态文件</p>
+<pre><code>D:\hexo-demo&gt; hexo g
+INFO  Start processing
+INFO  Files loaded in 243 ms
+INFO  Generated: fancybox/blank.gif
+INFO  Generated: index.html
+INFO  Generated: archives/index.html
+INFO  Generated: fancybox/fancybox_loading@2x.gif
+INFO  Generated: fancybox/fancybox_overlay.png
+INFO  Generated: fancybox/jquery.fancybox.css
+INFO  Generated: fancybox/fancybox_loading.gif
+INFO  Generated: fancybox/fancybox_sprite@2x.png
+INFO  Generated: fancybox/fancybox_sprite.png
+INFO  Generated: archives/2017/01/index.html
+INFO  Generated: archives/2017/index.html
+INFO  Generated: css/fonts/FontAwesome.otf
+INFO  Generated: fancybox/helpers/jquery.fancybox-thumbs.css
+INFO  Generated: fancybox/jquery.fancybox.js
+INFO  Generated: fancybox/helpers/jquery.fancybox-buttons.css
+INFO  Generated: css/style.css
+INFO  Generated: fancybox/jquery.fancybox.pack.js
+INFO  Generated: fancybox/helpers/jquery.fancybox-media.js
+INFO  Generated: js/script.js
+INFO  Generated: fancybox/helpers/jquery.fancybox-buttons.js
+INFO  Generated: fancybox/helpers/jquery.fancybox-thumbs.js
+INFO  Generated: css/fonts/fontawesome-webfont.woff
+INFO  Generated: fancybox/helpers/fancybox_buttons.png
+INFO  Generated: css/images/banner.jpg
+INFO  Generated: css/fonts/fontawesome-webfont.ttf
+INFO  Generated: css/fonts/fontawesome-webfont.eot
+INFO  Generated: css/fonts/fontawesome-webfont.svg
+INFO  Generated: 2017/01/24/hexo-demo/index.html
+INFO  Generated: 2017/01/25/hello-world/index.html
+INFO  29 files generated in 802 ms
+</code></pre><p>  我们会发现根目录多了一个 <code>public</code> 文件夹，同时 <code>db.json</code> 文件也写入了相关信息。 <code>public</code> 文件夹中就是我们要的静态文件。</p>
+<blockquote>
+<p>如果想清除之前生成的静态文件以便于干净清爽的重新生成，我们可以用 <code>hexo clean</code> 命令达成目的</p>
+</blockquote>
+<pre><code>D:\hexo-demo&gt; hexo clean
+INFO  Deleted database.
+INFO  Deleted public folder.
+</code></pre><h3 id="部署工作"><a href="#部署工作" class="headerlink" title="部署工作"></a>部署工作</h3><p>  Hexo 自带部署功能，只要我们提供相应的仓库地址便可一键完成部署。</p>
+<ul>
+<li><p>在根目录下的 <code>_config.yml</code>文件中，加入 <code>deploy</code> 配置。</p>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">(....)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment  </span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">- type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/ChenShihao/chenshihao.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br><span class="line"><span class="attr">- type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://git.coding.net/chenshihao/chenshihao.coding.me.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用命令 <code>hexo d -g</code> 部署</p>
+<blockquote>
+<p>根目录下的 <code>.deploy_git</code> 文件夹就是 git push 的内容，参数 <code>--g</code> 表示部署前先生成文件，否则最新的修改可能并没有提交。</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>至此，基本的搭建工作就算完成了。博客还有很多可以折腾的地方，我想，有时间的话，多写写博客也无妨。</p>
+
+
+                <hr>
+                
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/12/31/summary-2017/" data-toggle="tooltip" data-placement="top" title="维特陈先森的 2017">&larr; 上一篇</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/12/31/summary-2016/" data-toggle="tooltip" data-placement="top" title="维特陈先森的2016">下一篇 &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                        data-thread-key="2017/01/24/build-blog-with-hexo/"
+                        data-title="Hello Hexo！"
+                        data-url="http://chenshihao.site/2017/01/24/build-blog-with-hexo/" >
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User by Hux
+    var _user = 'chenshihao';
+
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/wei-te-chen-xian-sen-5">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/carefreesigh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/ChenShihao">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/chenshihao">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 维特陈先森 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("https://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="https://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://chenshihao.site/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-90745665-1';
+    var _gaDomain = 'auto';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '1d037a55bb5703fefc271401970638d4';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
