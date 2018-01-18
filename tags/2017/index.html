@@ -147,8 +147,6 @@
     </div>
 </header>
 
-
-
 <!-- Main Content -->
 <div class="container">
     <div class="row">
@@ -295,6 +293,36 @@
 </div>
 
 
+    
+
+<div class="container comment-container">
+    <div id="disqus_thread" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container"></div>
+</div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function () {
+        this.page.url = 'http://chenshihao.site/2017/12/31/summary-2017/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = '/2017/12/31/summary-2017/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function () {
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://EXAMPLE.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">
+        comments powered by Disqus.</a>
+</noscript>
+
     <!-- Footer -->
     <!-- Footer -->
 <footer>
@@ -353,17 +381,6 @@
                 </ul>
                 <p class="copyright text-muted">
                     Copyright &copy; 维特陈先森 2018 
-                    <br>
-                    Theme by <a href="http://huangxuan.me">Hux</a> 
-                    <span style="display: inline-block; margin: 0 5px;">
-                        <i class="fa fa-heart"></i>
-                    </span> 
-                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="91px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
-                    </iframe>
                 </p>
             </div>
         </div>
