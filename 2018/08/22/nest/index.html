@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <meta name="msvalidate.01" content="4F51AD3A9C5F4DDDFA709DC1A6B5943D" />
+    <meta name="baidu-site-verification" content="dKCP62k3HP" />
+    <meta name="google-site-verification" content="hKWZlwbzCj0T7GJsIcIuQ6NKTAzBsz7wS8ppAm3f_zg" />
+    <meta name="theme-color" content="#00695c">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="维特陈先森的博客，情怀与前端并进，美学与技术并行。记录关于前端的学习与生活">
+    <meta name="author" content="陈仕豪, victor_csh@outlook.com"/>
+    <meta name="keywords"  content="前端,陈仕豪,维特陈先森,博客,Victor,shihao,chenshihao">
+    <meta name="robots" content="index, follow">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          Nest 真香 - 维特陈先森的博客 | Victor&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://chenshihao.site/2018/08/22/nest/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">维特陈先森</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">首页</a>
+                    </li>
+
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/archives/">归档</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="/tags/">标签</a>
+                    </li>
+                    
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e) {
+        if ($navbar.className.indexOf('in') > 0) {
+            // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function () {
+                // prevent frequently toggle
+                if ($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            }, 400)
+        } else {
+            // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('support.jpg')
+    }
+    /*
+     * 临时修复高度问题
+     */
+    .intro-header + article{
+        overflow-y: hidden;
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#Nest" title="Nest">Nest</a>
+                        
+                          <a class="tag" href="/tags/#TypeScript" title="TypeScript">TypeScript</a>
+                        
+                          <a class="tag" href="/tags/#Node.js" title="Node.js">Node.js</a>
+                        
+                          <a class="tag" href="/tags/#Framework" title="Framework">Framework</a>
+                        
+                    </div>
+                    <h1>Nest 真香</h1>
+                    <h2 class="subheading">来一口老弟</h2>
+                    <span class="meta">
+                        陈仕豪 发表于 2018-08-22
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+                <blockquote>
+<p>今天的主题不是雀巢咖啡，也不是雀巢奶粉，毕竟我王境泽就是饿死，也不会打你们一点广告。</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/2824648-58deb01a32726641.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Nest.js"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>近几年由于 Node.js 的发展，JavaScript 变成了一种全栈通用语言，同时诞生了诸如 Angular、React、Vue 等一系列提高开发者生产力的优秀前端项目框架，这些框架让我们开发更快速、测试更便捷、拓展更简单。</p>
+<p>尽管 Node.js 服务端开发领域有着诸如 Express，Koa，Fastify 等一系列优秀的开源库、工具，但却缺乏真正意义上的框架。</p>
+<p>于是我一直在寻找，油腻的师姐，在哪里……</p>
+<p>直到那个冬季，我遇见了她 —— Nest。</p>
+<h2 id="Nest-是什么"><a href="#Nest-是什么" class="headerlink" title="Nest 是什么"></a>Nest 是什么</h2><p>官方概述是这样说的。</p>
+<blockquote>
+<p>A progressive Node.js framework for building efficient, reliable and scalable server-side applications, heavily inspired by Angular. </p>
+<p>一个深受 Angular 启发，旨在构建高效、可靠、高拓展性服务端应用程序的先进的 Node.js 框架。</p>
+</blockquote>
+<p>正如 Nest 作者所言——深受 Angular 启发，所以 Nest 的开发体验与 Angular 有些类似。既可以使用 TypeScript（与 Angular 相同，官方推荐），也可以使用 JavaScript 构建项目，同时结合了面向对象编程（Object Oriented Programming）、函数式编程（Functional Programming）、函数响应式编程（Functional Reactive Programming）等元素，可兼容主流第三方库与插件。 </p>
+<p>目前 Nest 的 Github star 数在 8000 左右，比我关注那会高了不少。</p>
+<h2 id="Nest-特点"><a href="#Nest-特点" class="headerlink" title="Nest 特点"></a>Nest 特点</h2><p>从下图可以看到官方宏观概述的特点</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2824648-ff8fab7cff3d51ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<ol>
+<li><p>高拓展性。可正常使用任何第三方库。</p>
+</li>
+<li><p>多功能性。适用于多种类型的服务端应用程序编写。</p>
+</li>
+<li><p>前沿先进。结合最前沿的 JavaScript 技术特性，将设计模式和成熟方案的理念带入 Node.js 领域中。 </p>
+</li>
+</ol>
+<p>以上是较为宏观的特性概述，关于其技术上的特点，我认为较为突出的有以下几点：</p>
+<ol>
+<li><p>官方推荐使用 TypeScript，工程化意义重大。</p>
+</li>
+<li><p>基于 Express 与 socket.io 套件，兼容其他库。</p>
+</li>
+<li><p>语法风格类似 Angular 2+，也类似 Java Spring 框架，大量使用装饰器（ES7 Decorator）函数，无侵入式的语法使得代码逻辑更为清晰。</p>
+</li>
+<li><p>遵循控制反转（IoC, Inversion of Control）思想，大量使用依赖注入（DI, Dependency Injection）的设计模式，大大降低了单元间的耦合度。</p>
+</li>
+<li><p>内置的异常控制层（Exception Filter），大至应用，小至逻辑，对各个级别的异常作捕获与处理，在程序响应上对用户更为友好。</p>
+</li>
+<li><p>内置的权限控制层（Guard）与拦截层（Interceptor）。</p>
+</li>
+<li><p>集成工程化的测试，官方使用 Jest 测试框架。</p>
+</li>
+</ol>
+<h2 id="小试牛刀"><a href="#小试牛刀" class="headerlink" title="小试牛刀"></a>小试牛刀</h2><p>我刚开始接触 Nest 时，新建项目还没有现在这么方便，相关依赖的安装都比较人肉。</p>
+<p>不过好在前不久正式版 @nestjs/cli 脚手架终于发布了（犹记得翘首以盼的我），新建项目也变得十分方便。</p>
+<p>废话，少说。脚手架，走一波。（单押 X2）</p>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
+<li><p>Visual Studio Code（萝卜青菜，各有所爱）</p>
+</li>
+<li><p>Node.js v9.2.0（&gt;= 8.9.0 即可）</p>
+</li>
+<li><p>@nestjs/cli（官方脚手架）</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm i -g @nestjs/cli</span><br></pre></td></tr></table></figure>
+<p>· nest-demo（项目初始化）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> nest new nest-demo</span><br></pre></td></tr></table></figure>
+<h2 id="初识-Nest"><a href="#初识-Nest" class="headerlink" title="初识 Nest"></a>初识 Nest</h2><p>如无意外，通过脚手架初始化项目的过程大致如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">⚡️  Creating your Nest project...</span><br><span class="line">🙌  We have to collect additional information:</span><br><span class="line"></span><br><span class="line">? description : description</span><br><span class="line">? version : 0.0.0</span><br><span class="line">? author : chenshihao</span><br><span class="line"></span><br><span class="line">💥  Thank you for your time!</span><br><span class="line"></span><br><span class="line">CREATE /nest-demo/.prettierrc (51 bytes)</span><br><span class="line">CREATE /nest-demo/README.md (339 bytes)</span><br><span class="line">CREATE /nest-demo/nodemon.json (147 bytes)</span><br><span class="line">CREATE /nest-demo/package.json (1527 bytes)</span><br><span class="line">CREATE /nest-demo/src/app.controller.spec.ts (588 bytes)</span><br><span class="line">CREATE /nest-demo/src/app.controller.ts (266 bytes)</span><br><span class="line">CREATE /nest-demo/src/app.module.ts (249 bytes)</span><br><span class="line">CREATE /nest-demo/src/app.service.ts (138 bytes)</span><br><span class="line">CREATE /nest-demo/src/main.hmr.ts (329 bytes)</span><br><span class="line">CREATE /nest-demo/src/main.ts (208 bytes)</span><br><span class="line">CREATE /nest-demo/test/app.e2e-spec.ts (593 bytes)</span><br><span class="line">CREATE /nest-demo/test/jest-e2e.json (154 bytes)</span><br><span class="line">CREATE /nest-demo/tsconfig.json (477 bytes)</span><br><span class="line">CREATE /nest-demo/tslint.json (895 bytes)</span><br><span class="line">CREATE /nest-demo/webpack.config.js (695 bytes)</span><br><span class="line">CREATE /nest-demo/.nestcli.json (60 bytes)</span><br><span class="line"></span><br><span class="line">? Which package manager would you ❤️ to use? yarn</span><br><span class="line">▹▸▹▹▹ Take ☕️ or 🍺 during the packages installation process and enjoy your time</span><br><span class="line"></span><br><span class="line">🚀  Successfully created project nest-demo</span><br></pre></td></tr></table></figure>
+<p>以上操作创建了种子项目并用 yarn 安装了依赖包。如果没有安装成功的话，可手动进行安装。</p>
+<p>我们可以看到，脚手架工具创建了若干文件，包括</p>
+<ul>
+<li><p>根目录</p>
+<p>  大多为配置文件，如 prettier、nodemon、tslint 等工具的配置文件（若不熟悉可以暂时忽略，将重心放在 *.ts 文件上有助于快速入手框架）</p>
+</li>
+<li><p>test 文件夹</p>
+<p>  端对端（e2e）测试用例与配置文件</p>
+</li>
+<li><p>src 文件夹</p>
+<p>  主程序入口文件及若干模块文件。其中文件层次关系大致如下</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2824648-bf041aad4ed10ed2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>我们对文件结构有了初步的认识</p>
+<ul>
+<li><p>入口文件 main.ts 引导程序运行，加载模块 app.module.ts</p>
+</li>
+<li><p>模块中，包括控制器 app.controller.ts，服务提供商 app.service.ts，测试用例 app.controller.spec.ts 等组件。</p>
+</li>
+</ul>
+<p>接下来我们直接以开发模式运行程序。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> npm run start:dev</span><br></pre></td></tr></table></figure>
+<p>如无意外，我们可以看到控制台有以下输出日志。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> nest-demo@0.0.0 start:dev /Users/victor/Desktop/nest-demo</span><br><span class="line"><span class="meta">&gt;</span> nodemon</span><br><span class="line"></span><br><span class="line">[nodemon] 1.18.3</span><br><span class="line">[nodemon] to restart at any time, enter `rs`</span><br><span class="line">[nodemon] watching: /Users/victor/Desktop/nest-demo/src/**/*</span><br><span class="line">[nodemon] starting `ts-node -r tsconfig-paths/register src/main.ts`</span><br><span class="line">[Nest] 16999   - 2018-8-20 11:33:49   [NestFactory] Starting Nest application...</span><br><span class="line">[Nest] 16999   - 2018-8-20 11:33:49   [InstanceLoader] AppModule dependencies initialized +8ms</span><br><span class="line">[Nest] 16999   - 2018-8-20 11:33:49   [RoutesResolver] AppController &#123;/&#125;: +14ms</span><br><span class="line">[Nest] 16999   - 2018-8-20 11:33:49   [RouterExplorer] Mapped &#123;/, GET&#125; route +3ms</span><br><span class="line">[Nest] 16999   - 2018-8-20 11:33:49   [NestApplication] Nest application successfully started +3ms</span><br></pre></td></tr></table></figure>
+<p>从图中我们能够得到的信息大致为</p>
+<ul>
+<li><p>运行 nodemon 监听项目文件</p>
+</li>
+<li><p>通过 ts-node 引导入口文件 main.ts</p>
+</li>
+<li><p>初始化模块与路由</p>
+</li>
+</ul>
+<p>在 main.ts 可以看到，默认端口号为 3000</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">main.ts</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">bootstrap</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> app = <span class="keyword">await</span> NestFactory.create(AppModule);</span><br><span class="line">  <span class="keyword">await</span> app.listen(<span class="number">3000</span>);</span><br><span class="line">&#125;</span><br><span class="line">bootstrap();</span><br></pre></td></tr></table></figure>
+<p>我们直接访问地址 <code>http://localhost:3000</code> 看看效果</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> curl localhost:3000</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
+<p>样例不作为参考，正式开发中，推荐使用 <a href="https://www.getpostman.com" target="_blank" rel="noopener">Postman</a> 进行 API 调试</p>
+<h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World!"></a>Hello World!</h2><p>看到 “Hello World! ” 的字符串，不禁让猿热血澎湃 —— 他做到了！</p>
+<p>我们回过头来看看这个值是怎么来的。</p>
+<p>通过结构示例图，我们知道模块 (module) 是一个非常重要的概念，而每个模块的控制器 (controller) 更是扮演着运筹帷幄的角色。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">app.controller.ts</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span>()</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppController &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> readonly appService: AppService</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Get</span>()</span><br><span class="line">  root(): <span class="built_in">string</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.appService.root();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>app.controller.ts 文件中定义了一个类，通过装饰器 @Controller() 使其成为一个路由控制类。类方法中，有构造函数 constructor 以及带有装饰器 @Get() 的 root 函数。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">app.service.ts</span><br><span class="line"></span><br><span class="line"><span class="meta">@Injectable</span>()</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppService &#123;</span><br><span class="line">  root(): <span class="built_in">string</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello World!'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>root 函数通过调用 service 中的 root 方法，返回字符串 “Hello World!”。</p>
+<p>此外，关于 HTTP 响应的操作，Nest 大体上已经帮我们安排的明明白白了，这也是官方推荐的写法。</p>
+<ul>
+<li><p>当我们的函数返回 JavaScript 对象或数组时，返回值会被自动转化成 JSON 对象；</p>
+</li>
+<li><p>当我们的函数返回字符串时，返回值不作处理。</p>
+</li>
+<li><p>响应状态码默认情况下总是 200，除了 POST 请求为 201 外，当然，我们是有办法通过装饰器轻松修改返回值的。</p>
+</li>
+</ul>
+<p>当然啦，如果有倔强的老哥非要操作一下 response 对象，也不是不可以滴。</p>
+<p>读到这里，我们便大致了解能用 GET 方法访问 <a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a> 得到“Hello World!”的来龙去脉了吧。</p>
+<h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><p>在上述代码片段中，我们会发现许多装饰器，如 @Controller()、@Injectable() 等。</p>
+<p>装饰器是什么？装饰器的定义大致如下</p>
+<blockquote>
+<p>An ES2016 decorator is an expression which returns a function and can take a target, name and property descriptor as arguments. You apply it by prefixing the decorator with an @ character and placing this at the very top of what you are trying to decorate. Decorators can be defined for either a class or a property.<br>ES7 装饰器是一种返回函数，且可传递目标对象、名称与属性描述作为参数的表达式。你可以使用@字符作为前缀并将装饰器放在你想装饰的对象上。装饰器可以被用在一个类或者一个属性上。</p>
+</blockquote>
+<p>想要了解更多关于装饰器的知识，可以参考这篇文章或者自行搜索<br><a href="https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841" target="_blank" rel="noopener">https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841</a></p>
+<p>装饰器 (Decorator) 作为 ES7 的一大特性，在 TypeScript 中可以被自由运用，在 Nest 中更是得到了合理的开发与利用。</p>
+<p>纵观 Nest ，装饰器贯穿了整个 Nest 框架，如：</p>
+<ul>
+<li><p>模块，一个带有 @Module() 装饰器的类</p>
+</li>
+<li><p>控制器，一个带有 @Controller() 装饰器的类</p>
+</li>
+<li><p>提供商，一个带有 @Injectable() 装饰器的类</p>
+</li>
+<li><p>通过装饰器语法装饰参数，更清晰便捷地取值</p>
+</li>
+</ul>
+<p>为了更好地说明装饰参数，我们举个栗子，修改一下 app.controller.ts 和 app.service.ts</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">app.controller.ts</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; Query &#125; <span class="keyword">from</span> <span class="string">'@nestjs/common'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Get</span>()</span><br><span class="line">root(<span class="meta">@Query</span>(<span class="string">'name'</span>) name: <span class="built_in">string</span> = <span class="string">'Victor'</span>): <span class="built_in">string</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.appService.root(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>往 app.controller.ts 的 GET 方法中添加参数 name，其中 Query 指的是 url 中的 params 参数</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">app.service.ts</span><br><span class="line"></span><br><span class="line"><span class="meta">@Injectable</span>()</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppService &#123;</span><br><span class="line">  root(name: <span class="built_in">string</span> = <span class="string">'World'</span>): <span class="built_in">string</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`Hello <span class="subst">$&#123;name&#125;</span>!`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配合控制层，往 app.service.ts 添加参数 name 以说明值的改变。</p>
+<p>此时服务会自动重启，我们以 GET 方式请求新地址 </p>
+<p><a href="http://localhost:3000?name=victor" target="_blank" rel="noopener">http://localhost:3000?name=victor</a> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> curl http://localhost:3000?name=Victor</span><br><span class="line">Hello Victor!</span><br></pre></td></tr></table></figure>
+<p>Surprise！好了，一个 url 传参的鲜活栗子就这么轻松加愉快的举完了。</p>
+<p>除了 @Query() 之外，Nest 内置的还有一些装饰器提供给我们直接使用，列举一下</p>
+<ul>
+<li><p>@Request() —— Express 请求对象</p>
+</li>
+<li><p>@Response() —— Express 响应对象</p>
+</li>
+<li><p>@Session() —— Session 对象</p>
+</li>
+<li><p>@Param(param?: string) —— RESTful 风格的路由参数</p>
+</li>
+<li><p>@Body(param?: string) —— 请求体</p>
+</li>
+<li><p>@Headers(param?: string) —— 请求头</p>
+</li>
+</ul>
+<p>官方提供的装饰器固然方便，然鹅在错综复杂的需求下，仅仅有这几个装饰器还是略显不足的。在这里，我们甚至可以自定义装饰器。</p>
+<p>这里我们新建一个文件 name.decorator.ts，为了避免逻辑干扰，在这里我们直接返回传递的值 data。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">name.decorator.ts</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; createParamDecorator &#125; <span class="keyword">from</span> <span class="string">'@nestjs/common'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Name = createParamDecorator(<span class="function">(<span class="params">data, req</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> data;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在 controller 中引用自定义装饰器，并传入常量 Victor。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">app.controller.ts</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; Name &#125; <span class="keyword">from</span> <span class="string">'name.decorator'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Get</span>()</span><br><span class="line">root(<span class="meta">@Name</span>(<span class="string">'Victor'</span>) name: <span class="built_in">string</span>): <span class="built_in">string</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.appService.root(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时服务重启，再次访问 <code>http://localhost:3000</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> curl localhost:3000</span><br><span class="line">Hello Victor!</span><br></pre></td></tr></table></figure>
+<p>通过装饰器的作用，我们成功的将 name 的值设置成 Victor，这是一个简单的例子，在实际生产环境中可以添加更为复杂的逻辑。</p>
+<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>如果说装饰器语法是 Nest 健美的身材，那么依赖注入则可以称为 Nest 有趣的灵魂了。</p>
+<p>简单来说，依赖注入（DI, Dependency Injection）是一种设计模式，旨在提供对象实例，调用单元在使用依赖对象实例时无需关心其提供方式，而是统一由 DI 系统提供。</p>
+<p>想要了解更多依赖注入知识，可以参考以下文章或者自行搜索</p>
+<p><a href="https://angular.io/guide/dependency-injection-pattern" target="_blank" rel="noopener">https://angular.io/guide/dependency-injection-pattern</a></p>
+<p>事实上，Nest 的设计理念是，“万物皆可为提供商” —— 如服务类（service）、仓库类（repository）、工厂类（factory）、帮助类（helper）等等。</p>
+<p>我们从实际代码入手了解这一概念，前面提到的 @Injectable() 装饰器，其装饰的对象正是我们所说的“依赖对象”，也就是例子中的 service 类。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">app.module.ts</span><br><span class="line"></span><br><span class="line"><span class="meta">@Module</span>(&#123;</span><br><span class="line">  imports: [],</span><br><span class="line">  controllers: [AppController],</span><br><span class="line">  providers: [AppService],</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>在 module 文件中，我们声明了 AppService 类作为 provider，这是 AppController 可以无实例化直接使用 appService 对象的伏笔。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">app.controller.ts</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span>()</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppController &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> readonly appService: AppService</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Get</span>()</span><br><span class="line">  root(): <span class="built_in">string</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.appService.root();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>AppService 作为可注入的依赖对象，通过在构造函数 constructor 中声明的方式，配合 DI 模式，解决了两者之间的依赖关系与独立性。于是，我们可以直接在方法中调用 appService。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">app.service.ts</span><br><span class="line"></span><br><span class="line"><span class="meta">@Injectable</span>()</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppService &#123;</span><br><span class="line">  root(): <span class="built_in">string</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello World!'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>理解了依赖注入的概念，可以更好的阅读与学习 Nest 的其他内容，如中间件（Middlewire）、管道（Pipe）、防御层（Guard）、拦截器（Interceptor）等等，都是通过依赖注入的方式与我们的控制层进行关联的。</p>
+<p>实际上，配合 @Inject() 装饰器，可以实现更为多样的注入类型，这是更为高级的 provider 注入方式，由于文章篇幅原因，在此就不赘述了。</p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>这是我的第一篇公众号文章。</p>
+<p>初心是为了介绍 Nest 框架，希望是不仅有落到实处的代码示例，不至于显得太空虚；同时也有更为重要的核心概念介绍，让读者有更好的大局观与学习方向。</p>
+<p>一篇文章往往不足以描述事物的全部，还有很多优秀的思想与巧妙的设计等着我们去探索，我们下篇文章见！</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://docs.nestjs.com" target="_blank" rel="noopener">https://docs.nestjs.com</a></li>
+</ul>
+<h2 id="原创作者"><a href="#原创作者" class="headerlink" title="原创作者"></a>原创作者</h2><p>陈仕豪，年十八，骚话连篇笑哈哈。skr~</p>
+<h2 id="原创链接"><a href="#原创链接" class="headerlink" title="原创链接"></a>原创链接</h2><p><a href="https://mp.weixin.qq.com/s/LKCecn2z1Pln90atQ0kcWw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/LKCecn2z1Pln90atQ0kcWw</a></p>
+
+
+                <hr>
+                
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/12/31/summary-2017/" data-toggle="tooltip" data-placement="top" title="维特陈先森的 2017">下一篇 &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- 如果开启评论功能 -->
+                
+
+                    
+                        <!-- disqus 评论框 start -->
+                        <div class="comment">
+                            <div id="disqus_thread" class="disqus-thread"></div>
+                        </div>
+                        <!-- disqus 评论框 end -->
+                
+                        <!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+                        <script type="text/javascript">
+                            /* * * CONFIGURATION VARIABLES * * */
+                            var disqus_shortname = "chenshihao";
+                            var disqus_identifier = "http://chenshihao.site/2018/08/22/nest/";
+                            var disqus_url = "http://chenshihao.site/2018/08/22/nest/";
+
+                            (function() {
+                                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                            })();
+                        </script>
+                        <!-- disqus 公共JS代码 end -->
+                    
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/wei-te-chen-xian-sen-5">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/carefreesigh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/ChenShihao">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/chenshihao">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 维特陈先森 2018 
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("https://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="https://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://chenshihao.site/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-90745665-1';
+    var _gaDomain = 'auto';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '1d037a55bb5703fefc271401970638d4';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- Side Catalog -->
+
+
+
+
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
